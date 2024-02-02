@@ -51,7 +51,7 @@ export const config: TemplateConfig = {
       replaceOptionValuesWithDisplayNames: ["paymentOptions"],
     },
   },
-  pageUrlField: "c_pagesURL"
+  pageUrlField: "c_pagesURLV2"
 };
 
 
