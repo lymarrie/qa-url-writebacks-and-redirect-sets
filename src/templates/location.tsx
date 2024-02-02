@@ -1,13 +1,3 @@
-/**
- * This is an example of how to create a template that makes use of streams data.
- * The stream data originates from Yext's Knowledge Graph. When a template in
- * concert with a stream is built by the Yext Pages system, a static html page
- * is generated for every corresponding (based on the filter) stream document.
- *
- * Another way to think about it is that a page will be generated using this
- * template for every eligible entity in your Knowledge Graph.
- */
-
 import {
   GetHeadConfig,
   GetPath,
@@ -28,19 +18,13 @@ import Hours from "../components/Hours";
 import PageLayout from "../components/PageLayout";
 import BreadCrumbs from "../components/Breadcrumbs";
 
-/**
- * Required when Knowledge Graph data is used for a template.
- */
+
 export const config: TemplateConfig = {
   stream: {
     $id: "location-stream",
-    // Defines the scope of entities that qualify for this stream.
-    // You can use entityTypes, savedFilterIds, and/or entityIds
     filter: {
       entityTypes: ["location"],
     },
-    // Specifies the exact data that each generated document will contain.
-    // This data is passed in directly as props to the default exported function.
     fields: [
       "id",
       "uid",
@@ -51,6 +35,7 @@ export const config: TemplateConfig = {
       "description",
       "hours",
       "slug",
+      "c_slugV2",
       "geocodedCoordinate",
       "services",
       "photoGallery",
@@ -59,7 +44,6 @@ export const config: TemplateConfig = {
       "dm_directoryParents.meta",
       "dm_directoryParents.c_addressRegionDisplayName",
     ],
-    // The entity language profiles that documents will be generated for.
     localization: {
       locales: ["en"],
     },
@@ -69,12 +53,7 @@ export const config: TemplateConfig = {
   },
 };
 
-/**
- * Defines the path that the generated file will live at for production.
- *
- * NOTE: To preview production URLs locally, you must return document.slug from this function
- * and ensure that each entity has the slug field pouplated.
- */
+
 export const getPath: GetPath<TemplateProps> = ({ document }) => {
   return document.slug
     ? document.slug
@@ -82,6 +61,15 @@ export const getPath: GetPath<TemplateProps> = ({ document }) => {
         document.address.line1
       }-${document.id.toString()}`;
 };
+
+// export const getPath: GetPath<TemplateProps> = ({ document }) => {
+//   return document.c_slugV2
+//     ? document.c_slugV2
+//     : `${document.locale}/${document.address.region}/${document.address.city}/${
+//         document.address.line1
+//       }-${document.id.toString()}`;
+// };
+
 
 /**
  * Defines a list of paths which will redirect to the path created by getPath.
