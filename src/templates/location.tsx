@@ -51,25 +51,25 @@ export const config: TemplateConfig = {
       replaceOptionValuesWithDisplayNames: ["paymentOptions"],
     },
   },
-  pageUrlField: "c_pagesURLV2"
+  pageUrlField: "c_pagesURL"
 };
 
 
-// export const getPath: GetPath<TemplateProps> = ({ document }) => {
-//   return document.slug
-//     ? document.slug
-//     : `${document.locale}/${document.address.region}/${document.address.city}/${
-//         document.address.line1
-//       }-${document.id.toString()}`;
-// };
-
 export const getPath: GetPath<TemplateProps> = ({ document }) => {
-  return document.c_slugV2
-    ? document.c_slugV2
+  return document.slug
+    ? document.slug
     : `${document.locale}/${document.address.region}/${document.address.city}/${
         document.address.line1
       }-${document.id.toString()}`;
 };
+
+// export const getPath: GetPath<TemplateProps> = ({ document }) => {
+//   return document.c_slugV2
+//     ? document.c_slugV2
+//     : `${document.locale}/${document.address.region}/${document.address.city}/${
+//         document.address.line1
+//       }-${document.id.toString()}`;
+// };
 
 export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
   document,
