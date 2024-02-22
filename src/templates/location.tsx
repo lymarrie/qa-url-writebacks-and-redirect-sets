@@ -23,7 +23,7 @@ export const config: TemplateConfig = {
   stream: {
     $id: "location-stream",
     filter: {
-      entityTypes: ["location"],
+      savedFilterIds: [YEXT_PUBLIC_LOCATIONS_SFID],
     },
     fields: [
       "id",
