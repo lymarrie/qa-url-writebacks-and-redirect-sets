@@ -53,7 +53,7 @@
     },
     {
       "entityType": "product",
-      "disabled": true
+      "disabled": false
     },
     {
       "entityType": "ce_menu",

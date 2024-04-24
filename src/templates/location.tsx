@@ -35,7 +35,6 @@ export const config: TemplateConfig = {
       "description",
       "hours",
       "slug",
-      "c_slugV2",
       "geocodedCoordinate",
       "services",
       "photoGallery",
