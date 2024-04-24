@@ -19,7 +19,7 @@ import {
    */
   export const config: TemplateConfig = {
     stream: {
-      $id: "my-redirect-stream-id",
+      $id: "closed-location",
       fields: [
         "id",
         "name",
